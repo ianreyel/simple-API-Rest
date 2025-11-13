@@ -1,4 +1,4 @@
-# simple-API-Rest-
+# simple-API-Rest
 a simple API made in Net.js that enables the creation of disposal points and the disposals carried out, code created for a college assignment (systems analysis and development)
 
 # API de Gerenciamento de Descarte de Resíduos
@@ -34,7 +34,7 @@ Certifique-se de ter o Node.js e o npm instalados em sua máquina.
 
 1.  **Clone o Repositório:**
     ```bash
-    git clone [https://github.com/ianreyel/simple-API-Rest-]
+    git clone [https://github.com/ianreyel/simple-API-Rest]
     cd api-descarte-residuos # ou o nome da sua pasta
     ```
 
