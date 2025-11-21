@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Histórico de Descartes</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; }
+        form { margin-bottom: 20px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .full-width { grid-column: 1 / -1; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input[type="text"], select, input[type="date"] { width: 100%; padding: 8px; box-sizing: border-box; }
+        button { padding: 10px 15px; background-color: #f7931e; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        #resultados { margin-top: 30px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 10px; border: 1px solid #ccc; text-align: left; }
+        th { background-color: #f0f0f0; }
+        .message { margin-top: 20px; padding: 10px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Filtro de Histórico de Descartes</h2>
+
+        <form id="filtroDescarteForm">
+            <div>
+                <label for="nomeUsuario">Nome do Usuário:</label>
+                <input type="text" id="nomeUsuario" name="nomeUsuario">
+            </div>
+
+            <div>
+                <label for="tipoResiduo">Tipo de Resíduo:</label>
+                <select id="tipoResiduo" name="tipoResiduo">
+                    <option value="">Todos</option>
+                    <option value="plástico">Plástico</option>
+                    <option value="papel">Papel</option>
+                    <option value="orgânico">Orgânico</option>
+                    <option value="eletrônico">Eletrônico</option>
+                    <option value="vidro">Vidro</option>
+                    <option value="outros">Outros</option>
+                </select>
+            </div>
+
+            <div class="full-width">
+                <label for="id_pontoDescarte">Ponto de Descarte:</label>
+                <select id="id_pontoDescarte" name="id_pontoDescarte">
+                    <option value="">Carregando pontos de descarte...</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="dataInicio">Data Início:</label>
+                <input type="date" id="dataInicio" name="dataInicio">
+            </div>
+            <div>
+                <label for="dataFim">Data Fim:</label>
+                <input type="date" id="dataFim" name="dataFim">
+            </div>
+            
+            <div class="full-width">
+                <button type="submit">Consultar Histórico</button>
+            </div>
+        </form>
+
+        <div id="message" class="message"></div>
+        
+        <div id="resultados">
+            <h3>Resultados da Consulta</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Data</th>
+                        <th>Resíduo</th>
+                        <th>Local (ID)</th>
+                        <th>Usuário</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelaDescartesBody">
+                    <tr><td colspan="5">Use os filtros para iniciar a consulta.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="consulta_historico.js"></script>
+</body>
+</html>

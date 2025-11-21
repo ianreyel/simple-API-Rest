@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Descarte de Resíduos</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background-color: #f4f7f6; }
+        .dashboard { max-width: 1200px; margin: 0 auto; }
+        h2 { text-align: center; color: #333; margin-bottom: 30px; }
+        #indicadores { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .card { background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.2s; }
+        .card:hover { transform: translateY(-5px); }
+        .card h3 { color: #007bff; margin-top: 0; font-size: 1.1em; }
+        .card .valor { font-size: 2.5em; font-weight: bold; margin-bottom: 10px; }
+        .card .descricao { color: #555; font-size: 0.9em; }
+        .crescimento { color: green; }
+        .reducao { color: red; }
+        #message { margin-top: 20px; padding: 10px; border-radius: 5px; text-align: center; font-weight: bold; }
+        .loading { text-align: center; padding: 50px; }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <h2>📊 Dashboard de Descarte de Resíduos</h2>
+        
+        <div id="loading" class="loading">Carregando dados do relatório...</div>
+        <div id="message"></div>
+
+        <div id="indicadores" style="display: none;">
+            
+            <div class="card">
+                <h3>Local Mais Movimentado</h3>
+                <div class="valor" id="localMaisRegistros">-</div>
+                <div class="descricao">Local de descarte com maior número de registros</div>
+            </div>
+
+            <div class="card">
+                <h3>Resíduo Mais Comum</h3>
+                <div class="valor" id="residuoMaisDescartado">-</div>
+                <div class="descricao">Tipo de resíduo mais frequentemente descartado</div>
+            </div>
+
+            <div class="card">
+                <h3>Média Diária (30 dias)</h3>
+                <div class="valor" id="mediaDescartesDia">-</div>
+                <div class="descricao">Média de descartes por dia no período dos últimos 30 dias</div>
+            </div>
+
+            <div class="card">
+                <h3>Total de Usuários</h3>
+                <div class="valor" id="totalUsuarios">-</div>
+                <div class="descricao">Número total de usuários no sistema</div>
+            </div>
+
+            <div class="card">
+                <h3>Pontos Cadastrados</h3>
+                <div class="valor" id="totalPontosDescarte">-</div>
+                <div class="descricao">Total de pontos de descarte cadastrados</div>
+            </div>
+
+            <div class="card">
+                <h3>Variação Mensal</h3>
+                <div class="valor" id="variacaoPercentualMensal">-</div>
+                <div class="descricao">Variação percentual do volume total de descartes comparado ao mês anterior</div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="relatorios.js"></script>
+</body>
+</html>
