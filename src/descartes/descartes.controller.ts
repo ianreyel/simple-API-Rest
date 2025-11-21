@@ -1,18 +1,18 @@
-import { Controller, Post, Body, Get } from '@nestjs/common';
-import { DescartesService } from './descartes.service';
+import { Controller, Post, Body, Get, Query } from '@nestjs/common'; 
+import { DescartesService, Descarte } from './descartes.service';
 import { CreateDescarteDto } from './dto/create-descarte.dto';
 
-@Controller('descartes') 
+@Controller('descartes')
 export class DescartesController {
   constructor(private readonly descartesService: DescartesService) {}
 
-  @Post() 
+  @Post()
   create(@Body() createDescarteDto: CreateDescarteDto) {
     return this.descartesService.create(createDescarteDto);
   }
 
-  @Get() 
-  findAll() {
-    return this.descartesService.findAll();
+  @Get()
+  findAll(@Query() query: any): Descarte[] {
+    return this.descartesService.findAll(query);
   }
 }
